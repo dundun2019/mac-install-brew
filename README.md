@@ -12,9 +12,9 @@
 
 ### Linux 和 在Windows 10 安装的 Linux 子系统
 
-安装 Homebrew 在 Linux 和 在Windows 10 安装的 Linux 子系统: https://docs.brew.sh/Linuxbrew
+安装 Homebrew 在 Linux 和 在Windows 10 中安装的 Linux 子系统: https://docs.brew.sh/Linuxbrew
 
- _用脚本（在发行版中）安装也可以_ 
+ _用脚本（[在发行版中](https://gitee.com/todungubulahe_bilibili/install-brew/releases)）安装也可以_ 
 
 ## 卸载 Homebrew
 
@@ -22,5 +22,5 @@
 /bin/bash -c "$(curl -fsSL https://gitee.com/todungubulahe_bilibili/install-brew/blob/master/uninstall.sh)"
 ```
 
-下载（卸载）脚本（再发行版中）然后执行（脚本）
+下载（卸载）脚本（在[发行版中](https://gitee.com/todungubulahe_bilibili/install-brew/releases)）然后执行（脚本）
  `/bin/bash uninstall.sh --help` 查看更多卸载选项
