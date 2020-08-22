@@ -24,3 +24,5 @@
 
 下载（卸载）脚本（在[发行版中](https://gitee.com/todungubulahe_bilibili/install-brew/releases)）然后执行（脚本）
  或执行`/bin/bash uninstall.sh --help` 查看更多卸载选项
+
+安装软件慢可以参考这片博客 https://www.cnblogs.com/trotl/p/11862796.html
