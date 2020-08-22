@@ -8,6 +8,8 @@
 
  _这条命令mac os无法食用解决方法在[wiki](https://gitee.com/todungubulahe_bilibili/install-brew/wikis/mac%20%E5%91%BD%E4%BB%A4%E6%97%A0%E6%B3%95%E9%A3%9F%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3?sort_id=2746643)_ 
 
+_用脚本（[在发行版中](https://gitee.com/todungubulahe_bilibili/install-brew/releases)）安装也可以_
+
 更多安装信息和选项在 https://docs.brew.sh/Installation.html
 
 ### Linux 和 在Windows 10 安装的 Linux 子系统
