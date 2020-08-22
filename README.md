@@ -28,3 +28,10 @@
 > 安装软件慢可以参考这片博客 https://www.cnblogs.com/trotl/p/11862796.html
 
 ![Image](https://gitee.com/yao2019ss/install-brew/widgets/widget_card.svg?colors=ffffff,1e252b,323d47,455059,d7deea,99a0ae)
+
+
+```
+测试系统：
+linuxmint 20 64bit
+mac os Catalina 10.15.6
+```
