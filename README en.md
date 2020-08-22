@@ -19,3 +19,10 @@ Install Homebrew on Linux and Windows 10 Subsystem for Linux: https://docs.brew.
 ```
 
 Download the uninstall script and run `/bin/bash uninstall.sh --help` to view more uninstall options.
+
+
+```
+tested system：
+linuxmint 20 64bit
+mac os Catalina 10.15.6
+```
