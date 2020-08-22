@@ -10,7 +10,7 @@ fi
 # On Linux, it installs to /home/linuxbrew/.linuxbrew if you have sudo access
 # and ~/.linuxbrew otherwise.
 # To install elsewhere (which is unsupported)
-# you can untar https://gitee.com/yao2019ss/install/blob/master
+# you can untar https://github.com/Homebrew/brew/tarball/master
 # anywhere you like.
 if [[ -z "${HOMEBREW_ON_LINUX-}" ]]; then
   HOMEBREW_PREFIX="/usr/local"
@@ -332,7 +332,7 @@ if [[ -z "${HOMEBREW_ON_LINUX-}" ]]; then
   if version_lt "$macos_version" "10.7"; then
     abort "$(cat <<EOABORT
 Your Mac OS X version is too old. See:
-  ${tty_underline}https://github.com/mistydemeo/tigerbrew${tty_reset}
+  ${tty_underline}https://gitee.com/todungubulahe_bilibili/tigerbrews${tty_reset}
 EOABORT
 )"
   elif version_lt "$macos_version" "10.10"; then
