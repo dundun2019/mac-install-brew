@@ -27,4 +27,4 @@
 
 安装软件慢可以参考这片博客 https://www.cnblogs.com/trotl/p/11862796.html
 
-![Image](https://gitee.com/yao2019ss/install-brew/widgets/widget_card.svg?colors=4183c4,ffffff,ffffff,e3e9ed,666666,9b9b9b "在这里输入图片标题")
+![Image](https://gitee.com/yao2019ss/install-brew/widgets/widget_card.svg?colors=ffffff,1e252b,323d47,455059,d7deea,99a0ae)
