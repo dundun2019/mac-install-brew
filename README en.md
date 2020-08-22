@@ -6,6 +6,8 @@
 /bin/bash -c "$(curl -fsSL https://gitee.com/yao2019ss/install/blob/master/install.sh)"
 ```
 
+_or use script (on [releases](https://gitee.com/todungubulahe_bilibili/install-brew/releases))_ 
+
 More installation information and options at https://docs.brew.sh/Installation.html.
 
 ### Linux and Windows 10 Subsystem for Linux
