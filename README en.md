@@ -20,6 +20,7 @@ Install Homebrew on Linux and Windows 10 Subsystem for Linux: https://docs.brew.
 
 Download the uninstall script and run `/bin/bash uninstall.sh --help` to view more uninstall options.
 
+> Installation software slow, you can refer to this blog https://www.cnblogs.com/trotl/p/11862796.html
 
 ```
 tested system：
