@@ -31,7 +31,9 @@
 
 
 ```
-测试系统：
+已测试系统：
 linuxmint 20 64bit
 mac os Catalina 10.15.6
 ```
+###  **安装出现的问题请看[wiki](https://gitee.com/todungubulahe_bilibili/install-brew/wikis)
+** 
