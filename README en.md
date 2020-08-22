@@ -6,6 +6,8 @@
 /bin/bash -c "$(curl -fsSL https://gitee.com/yao2019ss/install/blob/master/install.sh)"
 ```
 
+This command Mac OS can't use the solution in [Wiki](http://https://gitee.com/todungubulahe_bilibili/install-brew/wikis)
+
 _or use script (on [releases](https://gitee.com/todungubulahe_bilibili/install-brew/releases))_ 
 
 More installation information and options at https://docs.brew.sh/Installation.html.
