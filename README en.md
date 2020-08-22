@@ -33,3 +33,5 @@ tested system：
 linuxmint 20 64bit
 mac os Catalina 10.15.6
 ```
+
+more problem please see [wiki](https://gitee.com/todungubulahe_bilibili/install-brew/wikis)
