@@ -12,27 +12,14 @@ _用脚本（[在发行版中](https://gitee.com/todungubulahe_bilibili/install-
 
 更多安装信息和选项在 https://docs.brew.sh/Installation.html
 
-### Linux 和 在Windows 10 安装的 Linux 子系统
-
-安装 Homebrew 在 Linux 和 在Windows 10 中安装的 Linux 子系统: https://docs.brew.sh/Linuxbrew
-
- _用脚本（[在发行版中](https://gitee.com/todungubulahe_bilibili/install-brew/releases)）安装也可以_ 
-
 ## 卸载 Homebrew
-
-```bash
-/bin/bash -c "$(curl -fsSL https://gitee.com/todungubulahe_bilibili/install-brew/blob/master/uninstall.sh)"
-```
 
 下载（卸载）脚本（在[发行版中](https://gitee.com/todungubulahe_bilibili/install-brew/releases)）然后执行（脚本）
  或执行`/bin/bash uninstall.sh --help` 查看更多卸载选项
 
->  _mac_ 安装软件慢（需换源）可以参考这个[脚本](https://gitee.com/todungubulahe_bilibili/install-brew/blob/master/%E6%8D%A2%E6%BA%90.sh)
-
 ![](https://gitee.com/todungubulahe_bilibili/install-brew/widgets/widget_card.svg?colors=ffffff,1e252b,323d47,455059,d7deea,99a0ae "在这里输入图片标题")
 ```
 已测试系统：
-linuxmint 20 64bit
 mac os Catalina 10.15.6
 ```
 ###  **安装出现的问题请看[wiki](https://gitee.com/todungubulahe_bilibili/install-brew/wikis)** 
