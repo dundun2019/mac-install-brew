@@ -2,15 +2,17 @@
 
 ## 安装 Homebrew
 
-```bash
-/bin/bash -c "$(curl -fsSL https://gitee.com/yao2019ss/install/blob/master/install.sh)"
+ **下载strat-install.command脚本（[在发行版中](https://gitee.com/todungubulahe_bilibili/install-brew/releases)）双击打开
+如果不能打开** 
+
 ```
-
- _这条命令mac os无法食用解决方法在[wiki](https://gitee.com/todungubulahe_bilibili/install-brew/wikis/mac%20%E5%91%BD%E4%BB%A4%E6%97%A0%E6%B3%95%E9%A3%9F%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3?sort_id=2746643)_ 
-
-_用脚本（[在发行版中](https://gitee.com/todungubulahe_bilibili/install-brew/releases)）安装也可以_
-
-更多安装信息和选项在 https://docs.brew.sh/Installation.html
+这里以下载到Downloads（访达中的下载）为例
+1. 打开终端
+2. 等待窗口栏不在显示login时输入
+cd ~/Downloads #进入Downloads目录
+chmod +x start-install.command #将start-install.command这个脚本赋予可执行权限  **加号前需要有空格** 
+3. 双击start-install.command或在终端输入./start-install.command ### 前提没有退出终端
+```
 
 ## 卸载 Homebrew
 
