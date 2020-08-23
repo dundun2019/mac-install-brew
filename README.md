@@ -29,9 +29,7 @@ _用脚本（[在发行版中](https://gitee.com/todungubulahe_bilibili/install-
 
 >  _mac_ 安装软件慢（需换源）可以参考这个[脚本](https://gitee.com/todungubulahe_bilibili/install-brew/blob/master/%E6%8D%A2%E6%BA%90.sh)
 
-![Image](https://gitee.com/yao2019ss/install-brew/widgets/widget_card.svg?colors=ffffff,1e252b,323d47,455059,d7deea,99a0ae)
-
-
+![](https://gitee.com/todungubulahe_bilibili/install-brew/widgets/widget_card.svg?colors=ffffff,1e252b,323d47,455059,d7deea,99a0ae "在这里输入图片标题")
 ```
 已测试系统：
 linuxmint 20 64bit
