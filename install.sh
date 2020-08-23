@@ -660,3 +660,24 @@ if [[ -n "${HOMEBREW_ON_LINUX-}" ]]; then
 
 EOS
 fi
+echo 你需要换源[n/y]吗？可以使下载更快！
+read MY_DOWN_NUM
+case $MY_DOWN_NUM in
+yes)
+	chmod +x install.sh
+	./install.sh
+;;
+y)
+	echo 你需要换源[n/y]吗？可以使下载更快！
+	read MY_DOWN_NUM
+	case $MY_DOWN_NUM in
+yes/y)
+	chmod +x install.sh
+	./install.sh
+;;
+*)
+	echo 已为您跳过换源
+;;
+esac
+read -p "按任意退出"
+exit 0
