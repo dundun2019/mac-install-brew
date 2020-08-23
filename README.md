@@ -4,7 +4,7 @@
 
  **下载strat-install.command脚本（[在发行版中](https://gitee.com/todungubulahe_bilibili/install-brew/releases)）双击打开
 如果不能打开** 
-
+![](https://images.gitee.com/uploads/images/2020/0823/230939_e09380b2_7496100.png "截屏2020-08-23 22.46.19.png")
 ```
 这里以下载到Downloads（访达中的下载）为例
 1. 打开终端
