@@ -7,8 +7,7 @@ yes)
 	cd ~
 	git clone https://gitee.com/yao2019ss/install-brew.git
 	if [ ! -d "install-brew.git" ];then
-		cd install-brew.git
-	else
+		mv install-brew.git install-brew
 		cd install-brew
 	fi
 chmod +x install.sh
@@ -18,8 +17,7 @@ y)
 	cd ~
 	git clone https://gitee.com/yao2019ss/install-brew.git
 	if [ ! -d "install-brew.git" ];then
-		cd install-brew.git
-	else
+		mv install-brew.git install-brew
 		cd install-brew
 	fi
 chmod +x install.sh
