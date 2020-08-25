@@ -16,8 +16,8 @@ chmod +x start-install.command #将start-install.command这个脚本赋予可执
 
 ## 卸载 Homebrew
 
-下载（卸载）脚本（在[发行版中](https://gitee.com/todungubulahe_bilibili/install-brew/releases)）然后执行（脚本）
- 或执行`/bin/bash uninstall.sh --help` 查看更多卸载选项
+ **下载（卸载）脚本（在[发行版中](https://gitee.com/todungubulahe_bilibili/install-brew/releases)）然后执行（脚本）
+ 或执行`/bin/bash uninstall.sh --help` 查看更多卸载选项** 
 
 ![](https://gitee.com/todungubulahe_bilibili/install-brew/widgets/widget_card.svg?colors=ffffff,1e252b,323d47,455059,d7deea,99a0ae "在这里输入图片标题")
 ```
@@ -25,3 +25,5 @@ chmod +x start-install.command #将start-install.command这个脚本赋予可执
 mac os Catalina 10.15.6
 ```
 ###  **安装出现的问题请看[wiki](https://gitee.com/todungubulahe_bilibili/install-brew/wikis)**
+> ### 简单的brew命令教学 
+https://gitee.com/yao2019ss/install-brew/blob/master/%E7%AE%80%E5%8D%95brew%E5%91%BD%E4%BB%A4.md
