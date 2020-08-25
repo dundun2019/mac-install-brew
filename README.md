@@ -1,8 +1,8 @@
-# Homebrew 的安装或卸载
-
 ## 安装 Homebrew
 
- **下载strat-install.command脚本（[在发行版中](https://gitee.com/todungubulahe_bilibili/install-brew/releases)）双击打开
+<a href='https://gitee.com/todungubulahe_bilibili/install-brew'><img src='https://gitee.com/todungubulahe_bilibili/install-brew/widgets/widget_6.svg' alt='Fork me on Gitee'></img></a>
+ 
+**下载strat-install.command脚本（[在发行版中](https://gitee.com/todungubulahe_bilibili/install-brew/releases)）双击打开
 如果不能打开** 
 ![](https://images.gitee.com/uploads/images/2020/0823/230939_e09380b2_7496100.png "截屏2020-08-23 22.46.19.png")
 ```
@@ -24,4 +24,4 @@ chmod +x start-install.command #将start-install.command这个脚本赋予可执
 已测试系统：
 mac os Catalina 10.15.6
 ```
-###  **安装出现的问题请看[wiki](https://gitee.com/todungubulahe_bilibili/install-brew/wikis)** 
+###  **安装出现的问题请看[wiki](https://gitee.com/todungubulahe_bilibili/install-brew/wikis)**
