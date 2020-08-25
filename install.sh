@@ -1,6 +1,7 @@
 #!/bin/bash
+clear
 set -u
-
+echo 请输入开机密码因为需要读写权限
 # First check if the OS is Linux.
 if [[ "$(uname)" = "Linux" ]]; then
   HOMEBREW_ON_LINUX=1
@@ -76,7 +77,7 @@ have_sudo_access() {
   fi
 
   if [[ -z "${HOMEBREW_ON_LINUX-}" ]] && [[ "$HAVE_SUDO_ACCESS" -ne 0 ]]; then
-    abort "Need sudo access on macOS (e.g. the user $USER to be an Administrator)!"
+    abort "在 macOS 上需要root（sudo）权限 (比如 将用户权限 $USER 提升为管理员权限)!"
   fi
 
   return "$HAVE_SUDO_ACCESS"
@@ -140,7 +141,7 @@ getc() {
 wait_for_user() {
   local c
   echo
-  echo "Press RETURN to continue or any other key to abort"
+  echo "请通过按“ENTER”键进入下一个安装部分"
   getc c
   # we test for \r and \n because some stuff does \r instead
   if ! [[ "$c" == $'\r' || "$c" == $'\n' ]]; then
@@ -252,12 +253,11 @@ outdated_glibc() {
 if [[ -n "${HOMEBREW_ON_LINUX-}" ]] && no_usable_ruby && outdated_glibc
 then
     abort "$(cat <<-EOFABORT
-	Homebrew requires Ruby $REQUIRED_RUBY_VERSION which was not found on your system.
-	Homebrew portable Ruby requires Glibc version $REQUIRED_GLIBC_VERSION or newer,
-	and your Glibc version is too old.
-	See ${tty_underline}https://docs.brew.sh/Homebrew-on-Linux#requirements${tty_reset}
-	Install Ruby $REQUIRED_RUBY_VERSION and add its location to your PATH.
-	EOFABORT
+	Homebrew 需要有 Ruby $REQUIRED_RUBY_VERSION 语言但在你的系统中找不到.
+	Homebrew 的便携版 Ruby 需要 Glibc $REQUIRED_GLIBC_VERSION 或其更新版.
+	请看 ${tty_underline}https://docs.brew.sh/Homebrew-on-Linux 的requirements（要求）部分${tty_reset}
+	安装 Ruby $REQUIRED_RUBY_VERSION 然后添加你的PATH路径.
+    EOFABORT
     )"
 fi
 
@@ -279,7 +279,7 @@ cd "/usr" || exit 1
 ####################################################################### script
 if should_install_git; then
     abort "$(cat <<EOABORT
-You must install Git before installing Homebrew. See:
+你必须在安装Homebrew前安装Git Homebrew. 详情请看:
   ${tty_underline}https://docs.brew.sh/Installation${tty_reset}
 EOABORT
 )"
@@ -287,7 +287,7 @@ fi
 
 if should_install_curl; then
     abort "$(cat <<EOABORT
-You must install cURL before installing Homebrew. See:
+你必须在安装Homebrew前安装cURL. 详情请看:
   ${tty_underline}https://docs.brew.sh/Installation${tty_reset}
 EOABORT
 )"
@@ -301,10 +301,10 @@ else
   else
     trap exit SIGINT
     if [[ $(/usr/bin/sudo -n -l mkdir 2>&1) != *"mkdir"* ]]; then
-      ohai "Select the Homebrew installation directory"
-      echo "- ${tty_bold}Enter your password${tty_reset} to install to ${tty_underline}${HOMEBREW_PREFIX_DEFAULT}${tty_reset} (${tty_bold}recommended${tty_reset})"
-      echo "- ${tty_bold}Press Control-D${tty_reset} to install to ${tty_underline}$HOME/.linuxbrew${tty_reset}"
-      echo "- ${tty_bold}Press Control-C${tty_reset} to cancel installation"
+      ohai "选定Homebrew安装目录"
+      echo "- ${tty_bold}输入密码并回车${tty_reset} 去安装 去 ${tty_underline}${HOMEBREW_PREFIX_DEFAULT}${tty_reset} (${tty_bold}推荐${tty_reset})"
+      echo "- ${tty_bold}同时按Control和D${tty_reset} 去安装 到 ${tty_underline}$HOME/.linuxbrew${tty_reset}"
+      echo "- ${tty_bold}同时按 Control和C${tty_reset} 来停止安装"
     fi
     if have_sudo_access; then
       HOMEBREW_PREFIX="$HOMEBREW_PREFIX_DEFAULT"
@@ -320,9 +320,8 @@ if [[ "$UID" == "0" ]]; then
   abort "Don't run this as root!"
 elif [[ -d "$HOMEBREW_PREFIX" && ! -x "$HOMEBREW_PREFIX" ]]; then
   abort "$(cat <<EOABORT
-The Homebrew prefix, ${HOMEBREW_PREFIX}, exists but is not searchable. If this is
-not intentional, please restore the default permissions and try running the
-installer again:
+Homebrew的前缀, ${HOMEBREW_PREFIX}, 存在但没有找到. 如果这个不是
+ intentional, 请恢复为默认设置然后重新尝试运行安装程序并更改文件权限:
     sudo chmod 775 ${HOMEBREW_PREFIX}
 EOABORT
 )"
@@ -331,12 +330,12 @@ fi
 if [[ -z "${HOMEBREW_ON_LINUX-}" ]]; then
   if version_lt "$macos_version" "10.7"; then
     abort "$(cat <<EOABORT
-Your Mac OS X version is too old. See:
+你的Mac OS X版本太老了. 详见:
   ${tty_underline}https://gitee.com/todungubulahe_bilibili/tigerbrews${tty_reset}
 EOABORT
 )"
   elif version_lt "$macos_version" "10.10"; then
-    abort "Your OS X version is too old"
+    abort "你的OS X版本太老了"
   elif version_gt "$macos_version" "$MACOS_LATEST_SUPPORTED" || \
     version_lt "$macos_version" "$MACOS_OLDEST_SUPPORTED"; then
     who="We"
@@ -345,24 +344,22 @@ EOABORT
       what="pre-release version"
     else
       who+=" (and Apple)"
-      what="old version"
+      what="太老了"
     fi
-    ohai "You are using macOS ${macos_version}."
-    ohai "${who} do not provide support for this ${what}."
+    ohai "你在使用macOS ${macos_version}."
+    ohai "${who} 对这个没有提供支持 ${what}."
 
     echo "$(cat <<EOS
-This installation may not succeed.
-After installation, you will encounter build failures with some formulae.
-Please create pull requests instead of asking for help on Homebrew\'s GitHub,
-Discourse, Twitter or IRC. You are responsible for resolving any issues you
-experience while you are running this ${what}.
+这次安装应该没有成功！之后你有可能安装软件失败.
+请在github或gitee或Discourse或TwitterTwitter或IRC创建一个可靠的PR(pull requests)或去询问帮助(issues)
+并附上你的安装过程 ${what}.
 EOS
 )
 "
   fi
 fi
 
-ohai "This script will install:"
+ohai "这个脚本将会安装到这些目录:"
 echo "${HOMEBREW_PREFIX}/bin/brew"
 echo "${HOMEBREW_PREFIX}/share/doc/homebrew"
 echo "${HOMEBREW_PREFIX}/share/man/man1/brew.1"
@@ -436,23 +433,23 @@ if [[ "${#chmods[@]}" -gt 0 ]]; then
 fi
 
 if [[ "${#group_chmods[@]}" -gt 0 ]]; then
-  ohai "The following existing directories will be made group writable:"
+  ohai "在现的有（安装）目录中（修改群组）使其可以读写:"
   printf "%s\n" "${group_chmods[@]}"
 fi
 if [[ "${#user_chmods[@]}" -gt 0 ]]; then
-  ohai "The following existing directories will be made writable by user only:"
+  ohai "在现的有（安装）目录中（修改用户和群组）使其可以读写:"
   printf "%s\n" "${user_chmods[@]}"
 fi
 if [[ "${#chowns[@]}" -gt 0 ]]; then
-  ohai "The following existing directories will have their owner set to ${tty_underline}${USER}${tty_reset}:"
+  ohai "在现的有（安装）目录中（修改用户和群组）使其可以让您设置成 ${tty_underline}${USER}${tty_reset}:"
   printf "%s\n" "${chowns[@]}"
 fi
 if [[ "${#chgrps[@]}" -gt 0 ]]; then
-  ohai "The following existing directories will have their group set to ${tty_underline}${GROUP}${tty_reset}:"
+  ohai "在现的有（安装）目录中（修改用户和群组）使其可以让群组设置成 ${tty_underline}${GROUP}${tty_reset}:"
   printf "%s\n" "${chgrps[@]}"
 fi
 if [[ "${#mkdirs[@]}" -gt 0 ]]; then
-  ohai "The following new directories will be created:"
+  ohai "将创建以下新目录:"
   printf "%s\n" "${mkdirs[@]}"
 fi
 
@@ -517,7 +514,7 @@ if [[ -d "${HOMEBREW_CACHE}" ]]; then
 fi
 
 if should_install_command_line_tools && version_ge "$macos_version" "10.13"; then
-  ohai "Searching online for the Command Line Tools"
+  ohai "正在在线寻找Line Tools命令"
   # This temporary file prompts the 'softwareupdate' utility to list the Command Line Tools
   clt_placeholder="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
   execute_sudo "$TOUCH" "$clt_placeholder"
@@ -540,24 +537,24 @@ fi
 
 # Headless install may have failed, so fallback to original 'xcode-select' method
 if should_install_command_line_tools && test -t 0; then
-  ohai "Installing the Command Line Tools (expect a GUI popup):"
+  ohai "正在安装Line Tools命令(一个GUI界面):"
   execute_sudo "/usr/bin/xcode-select" "--install"
-  echo "Press any key when the installation has completed."
+  echo "请在安装安装完成后按任意键退出."
   getc
   execute_sudo "/usr/bin/xcode-select" "--switch" "/Library/Developer/CommandLineTools"
 fi
 
 if [[ -z "${HOMEBREW_ON_LINUX-}" ]] && ! output="$(/usr/bin/xcrun clang 2>&1)" && [[ "$output" == *"license"* ]]; then
   abort "$(cat <<EOABORT
-You have not agreed to the Xcode license.
-Before running the installer again please agree to the license by opening
-Xcode.app or running:
+你没有同意Xcode的许可.
+请在安装开始前运行
     sudo xcodebuild -license
+阅读并同意许可
 EOABORT
 )"
 fi
 
-ohai "Downloading and installing Homebrew..."
+ohai "正在下载安装Homebrew..."
 (
   cd "${HOMEBREW_REPOSITORY}" >/dev/null || return
 
@@ -585,7 +582,7 @@ if [[ ":${PATH}:" != *":${HOMEBREW_PREFIX}/bin:"* ]]; then
   warn "${HOMEBREW_PREFIX}/bin is not in your PATH."
 fi
 
-ohai "Installation successful!"
+ohai "安装完成!"
 echo
 
 # Use the shell's audible bell.
@@ -594,16 +591,16 @@ if [[ -t 1 ]]; then
 fi
 
 # Use an extra newline and bold to avoid this being missed.
-ohai "Homebrew has enabled anonymous aggregate formulae and cask analytics."
+ohai "Homebrew是一个匿名者聚集一起分析的组织."
 echo "$(cat <<EOS
-${tty_bold}Read the analytics documentation (and how to opt-out) here:
+${tty_bold}在这里可以阅读分析代码也可以退出:
   ${tty_underline}https://docs.brew.sh/Analytics${tty_reset}
-No analytics data has been sent yet (or will be during this \`install\` run).
+没有分析已经发出的日志 (或当这些时 \`install\` run).
 EOS
 )
 "
 
-ohai "Homebrew is run entirely by unpaid volunteers. Please consider donating:"
+ohai "Homebrew完全是非盈利的. 也可以考虑捐款:"
 echo "$(cat <<EOS
   ${tty_underline}https://gitee.com/todungubulahe_bilibili/brew#donations${tty_reset}
 EOS
@@ -616,9 +613,9 @@ EOS
   execute "git" "config" "--replace-all" "homebrew.caskanalyticsmessage" "true"
 ) || exit 1
 
-ohai "Next steps:"
-echo "- Run \`brew help\` to get started"
-echo "- Further documentation: "
+ohai "下一部分:"
+echo "- 执行 \`brew help\` "
+echo "- 进一步获取帮助: "
 echo "    ${tty_underline}https://docs.brew.sh${tty_reset}"
 
 if [[ -n "${HOMEBREW_ON_LINUX-}" ]]; then
@@ -638,7 +635,7 @@ if [[ -n "${HOMEBREW_ON_LINUX-}" ]]; then
       ;;
   esac
 
-  echo "- Install the Homebrew dependencies if you have sudo access:"
+  echo "- 安装Homebrew需要root(sudo)权限:"
 
   if [[ $(command -v apt-get) ]]; then
     echo "    sudo apt-get install build-essential"
@@ -660,24 +657,8 @@ if [[ -n "${HOMEBREW_ON_LINUX-}" ]]; then
 
 EOS
 fi
-echo 你需要换源[n/y]吗？可以使下载更快！
-read MY_DOWN_NUM
-case $MY_DOWN_NUM in
-yes)
-	chmod +x install.sh
-	./install.sh
-;;
-y)
-	echo 你需要换源[n/y]吗？可以使下载更快！
-	read MY_DOWN_NUM
-	case $MY_DOWN_NUM in
-yes/y)
-	chmod +x install.sh
-	./install.sh
-;;
-*)
-	echo 已为您跳过换源
-;;
-esac
-read -p "按任意退出"
+cd ~/install-brew
+chmod +x 换源.sh
+sleep 2
+./换源.sh
 exit 0
