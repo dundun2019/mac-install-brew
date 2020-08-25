@@ -2,15 +2,15 @@
 ```
 安装软件
 
-brew install git
+brew install [app name]
 
 卸载软件
 
-brew uninstall git
+brew uninstall [app name]
 
 搜索软件
 
-brew search git
+brew search [app name]
 
 显示已经安装软件列表
 
@@ -22,7 +22,7 @@ brew update
 
 更新某具体软件
 
-brew upgrade git
+brew upgrade [app name]
 
 查看软件信息
 
@@ -30,7 +30,7 @@ brew [info | home] [FORMULA...]
 
 删除程序，和upgrade一样，单个软件删除和所有程序老版删除。
 
-brew cleanup git
+brew cleanup [app name]
 brew cleanup
 
 查看那些已安装的程序需要更新
